@@ -24,17 +24,14 @@ class Question:
         self.answers.append(answer)
 
 
-def q_num_in_q_text(matches, ans_started):
-    for m in matches:
-        if ans_started:
-            return False
-        elif m.start() != 0:
-            return False
-        else:
-            return True
+def q_num_in_q_text(index):
+    if index > 0:
+        return True
+    else:
+        return False
 
 
-q_num_pattern = re.compile(r'([0-9]{1,4})\. ')
+q_num_pattern = re.compile(r'\d{1,3}\.\s')
 answr_pattern = re.compile(r'([ABCD])\. ')
 
 question_list = []
@@ -62,7 +59,7 @@ answer_list = [
 
 ]
 
-with open('test_data') as f:
+with open('test_data_0') as f:
     answr_started = False
     for line in f:
         q_num_bool = q_num_pattern.search(line)
@@ -70,14 +67,15 @@ with open('test_data') as f:
         answr_bool = answr_pattern.search(line)
         answr_matches = answr_pattern.finditer(line)
         if q_num_bool:
-            if q_num_in_q_text(q_num_matches, answr_started):
-                print(line, end='')
-        elif answr_bool:
-            print(line, end='')
-        else:
-            print(line, end='')
-        # print(line, end='')
+            for q in q_num_matches:
+                if q_num_in_q_text(q.start()):
+                    print(line, end='')
+                else:
+                    answr_started = False
+                    print(q.group()+line[q.end():len(line)-1])
+                    new_question = Question(int(q.group()[q.start():q.end()-2]), line[q.end():len(line)-1])
+                    question_list.append(new_question)
 
-
-# for q in question_list:
-#     print(q.question_num)
+for q in question_list:
+    print(q.question_num, end='. ')
+    print(q.question_txt)

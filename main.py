@@ -24,13 +24,18 @@ class Question:
         self.answers.append(answer)
 
 
+def q_num_in_q_text(matches, ans_started):
+    for m in matches:
+        if ans_started:
+            return False
+        elif m.start() != 0:
+            return False
+        else:
+            return True
+
+
 q_num_pattern = re.compile(r'([0-9]{1,4})\. ')
 answr_pattern = re.compile(r'([ABCD])\. ')
-
-
-def q_num_in_q_text(l):
-    pass
-
 
 question_list = []
 answer_list = [
@@ -58,14 +63,19 @@ answer_list = [
 ]
 
 with open('test_data') as f:
+    answr_started = False
     for line in f:
         q_num_bool = q_num_pattern.search(line)
         q_num_matches = q_num_pattern.finditer(line)
         answr_bool = answr_pattern.search(line)
         answr_matches = answr_pattern.finditer(line)
         if q_num_bool:
-            if q_num_in_q_text(q_num_matches):
-                print('q_num_in_text')
+            if q_num_in_q_text(q_num_matches, answr_started):
+                print(line, end='')
+        elif answr_bool:
+            print(line, end='')
+        else:
+            print(line, end='')
         # print(line, end='')
 
 

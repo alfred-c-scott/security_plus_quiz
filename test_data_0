@@ -12,8 +12,8 @@ A. answer A
 B. answer BC. answer C
 D. answer D
 3. This is a test for the case where the answer
-begins in the same line as the questionA. answer A
-this is the last line of the question body.
+begins in the same line as the question
+this is the last line of the question body.A. answer A
 B. answer B
 C. answer C
 D. answer D
@@ -23,8 +23,7 @@ this is the last line of the question body.
 A. answer A
 B. answer B
 C. answer C
-D. answer D
-5. This is a test for the case where the question
+D. answer D5. This is a test for the case where the question
 begins in the same line as the last answer of the
 previous question
 this is the last line of the question body.

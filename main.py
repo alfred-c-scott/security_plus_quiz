@@ -51,14 +51,16 @@ with open('test_data_0') as f:
         answr_matches = answr_pattern.finditer(line)
         if q_num_bool & answr_bool:
             # if q_num in text body
-            # concatenate_question_text
+            # --concatenate_question_text
             # elif q_num in answer body
-            # new question
+            # --add_answer
+            # --new question
             # else
-            # new question
+            # --new question
             pass
         elif q_num_bool:
-            # new question
+            # --new question
+            # --concatenate_answer
             pass
         elif answr_bool:
             # if two answers in one line

@@ -39,8 +39,6 @@ with open('test_data_0') as f:
             # --new question
             pass
         elif q_num_bool:
-        #     # --new question
-        #     # --concatenate_answer
             pass
         if q_num_bool:
             for q in q_num_matches:
@@ -55,11 +53,6 @@ with open('test_data_0') as f:
                     new_question = Question(question_num=q_num, question_txt=q_text)
                     question_list.append(new_question)
         elif answr_bool:
-            # if two answers in one line
-            # add both answers
-            # else
-            # add answer
-            # pass
             if num_of_answrs > 1:
                 c_0_start = 0
                 c_0_end = 0

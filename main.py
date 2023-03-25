@@ -5,43 +5,19 @@ class Question:
     def __init__(self, question_num=0, question_txt='blah'):
         self.question_num = question_num
         self.question_txt = question_txt
-        self.choice_a = {}
-        self.choice_b = {}
-        self.choice_c = {}
-        self.choice_d = {}
         self.choice_list = []
         self.explanation = None
 
     def concatenate_question_text(self, q_l):
         self.question_txt = self.question_txt + q_l
 
+    def append_choice_list(self, c_dict):
+        self.choice_list.append(c_dict)
 
 q_num_pattern = re.compile(r'[0-9]{1,3}\.\s')
 answr_pattern = re.compile(r'([ABCD])\. ')
 
 question_list = []
-# choice_list = [
-    # {
-    #     'choice': 'A',
-    #     'text': None,
-    #     'bool_correct': False
-    # },
-    # {
-    #     'choice': 'B',
-    #     'text': None,
-    #     'bool_correct': False
-    # },
-    # {
-    #     'choice': 'C',
-    #     'text': None,
-    #     'bool_correct': False
-    # },
-    # {
-    #     'choice': 'D',
-    #     'text': None,
-    #     'bool_correct': False
-    # },
-# ]
 choice_dict = {}
 
 with open('test_data_0') as f:
@@ -112,16 +88,10 @@ with open('test_data_0') as f:
                     choice_dict['correct'] = False
                     for q in question_list:
                         if q.question_num == active_question:
-                            if choice == 'A':
-                                q.choice_a = {'text': choice_text, 'correct': False}
-                            elif choice == 'B':
-                                q.choice_b = {'text': choice_text, 'correct': False}
-                            elif choice == 'C':
-                                q.choice_c = {'text': choice_text, 'correct': False}
-                            else:
-                                q.choice_d = {'text': choice_text, 'correct': False}
+                            q.append_choice_list(choice_dict)
                         else:
                             pass
+                    choice_dict = {}
         else:
             for q in question_list:
                 if q.question_num == active_question:
@@ -130,7 +100,5 @@ with open('test_data_0') as f:
 for q in question_list:
     print(q.question_num, end='. ')
     print(q.question_txt)
-    print('\t'+str(q.choice_a))
-    print('\t'+str(q.choice_b))
-    print('\t'+str(q.choice_c))
-    print('\t'+str(q.choice_d))
+    for c in q.choice_list:
+        print(c)

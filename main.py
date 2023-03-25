@@ -30,14 +30,13 @@ with open('test_data_0') as f:
         answr_matches = answr_pattern.finditer(line)
         num_of_answrs = len(answr_pattern.findall(line))
         if q_num_bool and answr_bool:
-            # if q_num in text body
-            # --concatenate_question_text
-            # elif q_num in answer body
+            for q in q_num_matches:
+                if q.start() > 0:
+                    a
             # --add_answer
             # --new question
             # else
             # --new question
-            pass
         elif q_num_bool:
             pass
         if q_num_bool:

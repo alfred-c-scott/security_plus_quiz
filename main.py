@@ -29,7 +29,7 @@ with open('test_data_0') as f:
         answr_bool = answr_pattern.search(line)
         answr_matches = answr_pattern.finditer(line)
         num_of_answrs = len(answr_pattern.findall(line))
-        # if q_num_bool and answr_bool:
+        if q_num_bool and answr_bool:
             # if q_num in text body
             # --concatenate_question_text
             # elif q_num in answer body
@@ -37,11 +37,11 @@ with open('test_data_0') as f:
             # --new question
             # else
             # --new question
-            # pass
-        # elif q_num_bool:
+            pass
+        elif q_num_bool:
         #     # --new question
         #     # --concatenate_answer
-        #     pass
+            pass
         if q_num_bool:
             for q in q_num_matches:
                 if q.start() > 0:
@@ -65,6 +65,8 @@ with open('test_data_0') as f:
                 c_0_end = 0
                 c_1_start = 0
                 c_1_end = 0
+                choice_0_dict = {}
+                choice_1_dict = {}
                 for ct, a in enumerate(answr_matches):
                     if ct == 0:
                         c_0_start = a.start()
@@ -76,15 +78,28 @@ with open('test_data_0') as f:
                 choice_0_txt = line[c_0_end:c_1_start]
                 choice_1 = line[c_1_start:c_1_end-2]
                 choice_1_txt = line[c_1_end:len(line)-1]
+                choice_0_dict['choice'] = choice_0
+                choice_0_dict['text'] = choice_0_txt
+                choice_0_dict['correct'] = False
+                choice_1_dict['choice'] = choice_1
+                choice_1_dict['text'] = choice_1_txt
+                choice_1_dict['correct'] = False
+                for q in question_list:
+                    if q.question_num == active_question:
+                        q.append_choice_list(choice_0_dict)
+                        q.append_choice_list(choice_1_dict)
+                choice_0_dict = {}
+                choice_1_dict = {}
                 print(choice_0+' '+choice_0_txt)
                 print(choice_1+' '+choice_1_txt)
             else:
+                choice_dict = {}
                 for a in answr_matches:
-                    choice = a.group()[a.start():a.end()-2]
-                    choice_text = line[a.end():len(line)-1]
-                    print(choice+' '+choice_text)
+                    choice = line[a.start():a.end()-2]
+                    choice_txt = line[a.end():len(line)-1]
+                    print(choice+' '+choice_txt)
                     choice_dict['choice'] = choice
-                    choice_dict['text'] = choice_text
+                    choice_dict['text'] = choice_txt
                     choice_dict['correct'] = False
                     for q in question_list:
                         if q.question_num == active_question:

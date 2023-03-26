@@ -13,6 +13,11 @@ class Question:
     def concatenate_question_text(self, q_l):
         self.question_txt = self.question_txt + q_l
 
+    def concatenate_choice_text(self, c_c, c_t):
+        for ch in self.choice_list:
+            if ch['choice'] == c_c:
+                ch['text'] = ch['text'] + c_t
+
     def append_choice_list(self, c_dict):
         self.choice_list.append(c_dict)
 
@@ -22,7 +27,7 @@ answr_pattern = re.compile(r'([ABCD])\. ')
 question_list = []
 # choice_dict = {}
 
-with open('ch_1_questions') as f:
+with open('test_data_0') as f:
     line_list = f.readlines()
     active_question = 0
     active_choice = ''

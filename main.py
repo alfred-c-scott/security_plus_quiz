@@ -129,24 +129,25 @@ for ct, q in enumerate(question_list):
     # if len(q.choice_list) < 4:
     #     print(f'Error in Question {q.question_num}. ')
 
+def quiz_func(q):
+    for i, q in enumerate(q):
+        print(str(i+1) + str(q.question_num))
 
+quiz = []
 while True:
     response_1 = input('what would you like to do:\n\t1. Take a quiz\n\t2. Exit program\n>', )
     if response_1 == '1':
         response_2 = input('How many questions would you like to answer:\n\t1. 10\n\t2. 20\n\t3. 30\n\t4. 40\n>')
         random.shuffle(question_list)
         if response_2 == '1':
-            quiz = question_list[0:20]
-            for q in quiz:
-                print(q.question_num)
+            quiz = question_list[0:10]
+            quiz_func(quiz)
         elif response_2 == '2':
-            pass
+            quiz = question_list[0:20]
         elif response_2 == '3':
-            pass
+            quiz = question_list[0:30]
         elif response_2 == '4':
-            pass
-        else:
-            pass
+            quiz = question_list[0:40]
     if response_1 == '2':
         break
 

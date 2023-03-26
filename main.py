@@ -20,28 +20,22 @@ q_num_pattern = re.compile(r'[0-9]{1,3}\. ')
 answr_pattern = re.compile(r'([ABCD])\. ')
 
 question_list = []
-choice_dict = {}
+# choice_dict = {}
 
 with open('ch_2_questions') as f:
     line_list = f.readlines()
     active_question = 0
+    active_choice = ''
     for line in line_list:
         q_num_bool = q_num_pattern.search(line)
         q_num_matches = q_num_pattern.finditer(line)
-        answr_bool = answr_pattern.search(line)
-        answr_matches = answr_pattern.finditer(line)
-        num_of_answrs = len(answr_pattern.findall(line))
-        if q_num_bool and answr_bool:
-            # if q_num in text body
-            # --concatenate_question_text
-            # elif q_num in answer body
-            # --add_answer
-            # --new question
-            # else
-            # --new question
+        choice_bool = answr_pattern.search(line)
+        choice_matches = answr_pattern.finditer(line)
+        num_of_choices = len(answr_pattern.findall(line))
+        if q_num_bool and choice_bool:
             for q in q_num_matches:
                 if q.start() > 0:
-                    for a in answr_matches:
+                    for a in choice_matches:
                         if a.start() == 0:
                             for question in question_list:
                                 if question.question_num == active_question:
@@ -67,15 +61,15 @@ with open('ch_2_questions') as f:
                     q_text = line[q.end():len(line)-1]
                     new_question = Question(question_num=q_num, question_txt=q_text)
                     question_list.append(new_question)
-        elif answr_bool:
-            if num_of_answrs > 1:
+        elif choice_bool:
+            if num_of_choices > 1:
                 c_0_start = 0
                 c_0_end = 0
                 c_1_start = 0
                 c_1_end = 0
                 choice_0_dict = {}
                 choice_1_dict = {}
-                for ct, a in enumerate(answr_matches):
+                for ct, a in enumerate(choice_matches):
                     if ct == 0:
                         c_0_start = a.start()
                         c_0_end = a.end()
@@ -102,7 +96,7 @@ with open('ch_2_questions') as f:
                 print(choice_1+' '+choice_1_txt)
             else:
                 choice_dict = {}
-                for a in answr_matches:
+                for a in choice_matches:
                     choice = line[a.start():a.end()-2]
                     choice_txt = line[a.end():len(line)-1]
                     print(choice+' '+choice_txt)

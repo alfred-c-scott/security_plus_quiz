@@ -1,5 +1,7 @@
-import re
+#!/usr/bin/python3
 
+import re
+import random
 
 class Question:
     def __init__(self, question_num=0, question_txt='blah'):
@@ -14,13 +16,13 @@ class Question:
     def append_choice_list(self, c_dict):
         self.choice_list.append(c_dict)
 
-q_num_pattern = re.compile(r'[0-9]{1,3}\.\s')
+q_num_pattern = re.compile(r'[0-9]{1,3}\. ')
 answr_pattern = re.compile(r'([ABCD])\. ')
 
 question_list = []
 choice_dict = {}
 
-with open('test_data_0') as f:
+with open('ch_2_questions') as f:
     line_list = f.readlines()
     active_question = 0
     for line in line_list:
@@ -37,7 +39,22 @@ with open('test_data_0') as f:
             # --new question
             # else
             # --new question
-            pass
+            for q in q_num_matches:
+                if q.start() > 0:
+                    for a in answr_matches:
+                        if a.start() == 0:
+                            for question in question_list:
+                                if question.question_num == active_question:
+                                    choice = line[a.start():a.end()-2]
+                                    choice_text = line[a.end():q.start()]
+                                    choice_dict['choice'] = choice
+                                    choice_dict['text'] = choice_txt
+                                    choice_dict['correct'] = False
+                                    question.append_choice_list(choice_dict)
+                active_question = int(line[q.start():q.end()-2])
+                new_question = Question(active_question, line[q.start():len(line)-1])
+                question_list.append(new_question)
+        # TODO fix for case where q_num starts in Choice D. where Choice D. is two lines long
         elif q_num_bool:
             for q in q_num_matches:
                 if q.start() > 0:
@@ -103,8 +120,33 @@ with open('test_data_0') as f:
                 if q.question_num == active_question:
                     q.concatenate_question_text(' '+line[0:len(line)-1])
 
-for q in question_list:
+for ct, q in enumerate(question_list):
+    print(ct+1)
     print(q.question_num, end='. ')
     print(q.question_txt)
     for c in q.choice_list:
         print(c)
+    # if len(q.choice_list) < 4:
+    #     print(f'Error in Question {q.question_num}. ')
+
+
+while True:
+    response_1 = input('what would you like to do:\n\t1. Take a quiz\n\t2. Exit program\n>', )
+    if response_1 == '1':
+        response_2 = input('How many questions would you like to answer:\n\t1. 10\n\t2. 20\n\t3. 30\n\t4. 40\n>')
+        random.shuffle(question_list)
+        if response_2 == '1':
+            quiz = question_list[0:20]
+            for q in quiz:
+                print(q.question_num)
+        elif response_2 == '2':
+            pass
+        elif response_2 == '3':
+            pass
+        elif response_2 == '4':
+            pass
+        else:
+            pass
+    if response_1 == '2':
+        break
+

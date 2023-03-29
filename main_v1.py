@@ -1,7 +1,14 @@
 #!/usr/bin/python3
 
+# this version worked good except for the cases where the choices spanned multiple lines
+# I may come back and finish working on this at a later date because I can make it work
+# however because I am in a time crunch to take this exam I wanted to get something
+# working, without editing the raw data copied from the pdf.
+#
+# see main_v2.py for working code
 import re
 import random
+
 
 class Question:
     def __init__(self, question_num=0, question_txt='blah'):
@@ -20,6 +27,7 @@ class Question:
 
     def append_choice_list(self, c_dict):
         self.choice_list.append(c_dict)
+
 
 q_num_pattern = re.compile(r'[0-9]{1,3}\. ')
 answr_pattern = re.compile(r'([ABCD])\. ')
@@ -119,6 +127,7 @@ with open('test_data_0') as f:
             for q in question_list:
                 if q.question_num == active_question:
                     q.concatenate_question_text(' '+line[0:len(line)-1])
+
 
 for ct, q in enumerate(question_list):
     print(ct+1)

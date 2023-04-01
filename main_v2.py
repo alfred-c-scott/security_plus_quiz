@@ -22,18 +22,6 @@ with open('ch_2_questions') as f:
     print(f_data)
     print(f'There are {num_of_qs} questions in the data file')
 
-    # ct = 1
-    # while ct <= num_of_qs:
-    #     q_num_p = re.compile(rf'{str(ct)}\. ')
-    #     if not re.search(q_num_p, f_data):
-    #         print('No')
-    #     match = re.search(q_num_p, f_data)
-    #     start = match.start()
-    #     # don't insert new line on first question
-    #     if match.group() != '1. ':
-    #         f_data = f_data[:int(match.start())]+'\n'+f_data[int(match.start()):]
-    #     ct += 1
-
     ct = 1
     while ct <= num_of_qs:
         q_begins = re.compile(rf'{str(ct)}\. ')

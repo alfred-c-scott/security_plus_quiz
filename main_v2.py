@@ -4,15 +4,13 @@ q_num_pattern = re.compile(r'[0-9]{1,3}\. ')
 choice_a_pattern = re.compile(r'A\. ')
 
 q_list = []
+q_dict = {}
 
 with open('ch_2_questions') as f:
     f_data = f.read()
     f_data = f_data.replace('\n', ' ')
     ct = 1
-    q_num_bool = q_num_pattern.search(f_data)
     q_num_matches = q_num_pattern.finditer(f_data)
-    choice_a_bool = choice_a_pattern.search(f_data)
-    choice_a_matches = choice_a_pattern.finditer(f_data)
     for match in q_num_matches:
         q_num = int(match.group()[0:len(match.group())-2])
         if ct == q_num:

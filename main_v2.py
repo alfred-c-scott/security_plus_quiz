@@ -42,60 +42,14 @@ for enum, q in enumerate(q_list):
             q_list[enum] = q
             break
 
-# for q in q_list:
-#     print(q)
-
-
-
-# c_a_pattern = re.compile(r' A\. ')
-# c_b_pattern = re.compile(r' B\. ')
-# c_c_pattern = re.compile(r' C\. ')
-# c_d_pattern = re.compile(r' D\. ')
-
 # updated pattern after reformat of f_data
-
 f_c_pattern = re.compile(r' [ABCD]\. ')
-
-q_dict = {
-    'full_str': 'full string',
-    'q_num': 0,
-    'q_txt': None,
-    'choices': [
-        {
-            'opt': 'A',
-            'opt_text': 'answer A',
-            'is_correct': False,
-        },
-        {
-            'opt': 'B',
-            'opt_text': 'answer D',
-            'is_correct': False,
-        },
-        {
-            'opt': 'C',
-            'opt_text': 'answer C',
-            'is_correct': False,
-        },
-        {
-            'opt': 'D',
-            'opt_text': 'answer D',
-            'is_correct': False,
-        },
-    ],
-    'explanation': None,
-    'tot_attempts': None,
-    'correct_attempts': None
-}
 
 for enum, q in enumerate(q_list):
     c_match = f_c_pattern.finditer(q)
     q_match = q_num_pattern.search(q)
-    # start = q_match.start()
-    # end = q_match.end()-2
-    # print(start, end=' ')
-    # print(end, end=' ')
-    # print(q_match.group()[start:end])
-    q_dict = {'full_str': q}
+    q_dict = {}
+    q_dict['full_str'] = q
     q_dict['q_num'] = int(q_match.group()[q_match.start():q_match.end()-2])
     a_start = None
     a_end = None
@@ -119,15 +73,13 @@ for enum, q in enumerate(q_list):
             d_start = c.start()
             d_end = c.end()
             pass
-    # for ch in q_dict['choices']:
-    #     if ch['opt'] == 'A':
-    #         print(ch['opt_text'])
     q_dict['q_txt'] = q[q_match.end():a_start]
     q_dict['choices'] = []
     q_dict['choices'].append({'opt': 'A', 'opt_text': q[a_end:b_start], 'is_correct': False})
     q_dict['choices'].append({'opt': 'B', 'opt_text': q[b_end:c_start], 'is_correct': False})
     q_dict['choices'].append({'opt': 'C', 'opt_text': q[c_end:d_start], 'is_correct': False})
     q_dict['choices'].append({'opt': 'D', 'opt_text': q[d_end:len(q)], 'is_correct': False})
+    # must pass copy
     q_list[enum] = q_dict.copy()
 
 for q in q_list:

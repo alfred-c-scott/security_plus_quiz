@@ -1,0 +1,31 @@
+# Flash
+PKI (Public Key Infrastructure)
+--An entire system of hardware software, policies, procedures, and people that is based on asymmetric encryption
+Certificates
+--Digitally-signed electronic documents that bind a public key with a user's identity
+X.509
+--Standard used for PKI digital certificates and contains the owner/users information adn the certificate authority's information
+Wildcard Certificates
+--Allow all of the subdomains to use the same public key certificate and have it displayed as valid
+SAN (Subject Alternative Name)
+--Allows a certificate owner to specify additional domains and IP addresses to be supported
+Dual-Sided Certificates
+--Requires both the server and the user to be validated but requires more processing power and is typically only used in high security settings
+X.690
+--Uses BER, CER, and DER for encoding certificates
+CRL (Certificate Revocation List)
+--An online list of a digital certificates authority
+OCSP
+--A protocol that allows you to determine the revocation status of a digital certificate
+OCSP Stapling
+--Allows the certificate holder to get the OCSP record from the server at regular intervals and include it as part of the SSL or TLS handshake
+Public Key Pinning
+--Allows an HTTPS website to resist impersonation attacks by presenting a set of trusted public keys to the user's web browser as part of the HTTP header
+Key Escrow
+--Occurs when a secure copy of a user's private key is held in case the user accidentally loses their key
+Key Recovery Agent
+--A specialized type of software that allows the restoration of a lost or corrupted key to be performed\
+Web of Trust
+--A decentralized trust model that addresses issues associated with the public authentication of public keys within a CA-based PKI system
+Transitive Trust
+--Occurs when X trusts Y, and Y trusts Z, therefore X trusts Z

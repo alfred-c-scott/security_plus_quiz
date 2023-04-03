@@ -1,0 +1,13 @@
+# Flash
+BER
+--Basic Encoding Rules
+CER
+--Canonical Encoding Rules
+DER
+--Distinguished Encoding Rules
+CRL
+--Certificate Revocation List
+OCSP
+--Online Certificate Status Protocol
+CSR
+--Certificate Signing Request

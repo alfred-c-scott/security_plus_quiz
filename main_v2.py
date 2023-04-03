@@ -90,3 +90,8 @@ for q in q_list:
         print(ch['is_correct'])
 
 print(f'There are {num_of_qs} questions in the data file')
+
+json_object = json.dumps(q_list, indent=4)
+# print(json_object)
+with open ('ch_2.json', 'w') as out_f:
+    json.dump(json_object, out_f)

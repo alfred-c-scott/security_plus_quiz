@@ -1,0 +1,32 @@
+Cluster
+--Two or more servers working together to perform a particular function
+Failover Cluster
+--A secondary server that takes over when the primary fails
+Load Balancing Cluster
+--Servers are clustered in order to share resources such as CPU and memory.
+Hot Site
+--A near duplicate of the original site of the organization that can be up and running within minutes
+Warm Site
+--A site that has computers and phones, and servers but they might require some configuration before users can start working
+Cold Site
+--A site that has tables, chairs, bathrooms, and possibly some technical like phones and network cables
+Full Backup
+--All of the contents of a drive are backed up
+Incremental Backup
+--Only conducts a backup of the contents of a drive that have changed since the last full or incremental backup
+Differential Backup
+--Only conducts a backup of the contents of a drive that have changed since the last full backup
+Grandfather Father Son tape rotation
+--Son is a set used daily, Father used weekly, and Grandfather monthly
+Towers of Hanoi
+--Three sets of tapes are used but in a more complex system as compared to Grandfather, Father, Son
+Snapshot
+--Type of backup primarily used to capture the entire operating system image including all applications and data
+MTD (Maximum Tolerable Downtime)
+--Maximum amount of time the system can be inoperable without causing irreparable damage to a business
+RTO (Recovery Time Objective)
+--The length of time it takes after an event to resume normal business operations and activity
+WRT (Work Recovery Time)
+--Length of time in addition to the RTO of individual systems to perform re-integration and testing of a restored or upgraded system folowing an event
+RPO (Recovery Point Objective)
+--the longest period of time that an organization can tolerate lost data being unrecoverable

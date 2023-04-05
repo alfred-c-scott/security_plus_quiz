@@ -25,4 +25,20 @@ L2TP
 --Layer 2 Tunneling Protocol
 ESP
 --Encapsulating Security Payload
+BCP
+--Business Continuity Plan
+BIA
+--Business Impact Analysis
+RPO
+--Recovery Point Objective
+RTO
+--Recovery Time Objective
+MTD
+--Maximum Tolerable Downtime
+WRT
+--Work Recovery Time
+MTBF
+--Mean Time Between Failure
+MTTR
+--Mean Time To Recovery
 

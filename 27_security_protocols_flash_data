@@ -1,0 +1,16 @@
+Downgrade Attack
+--When a protocol is tricked into using a lower quality version of itself
+PPTP
+--A protocol that encapsulates PPP packets and then sends them out as encrypted traffic
+IKE
+--Method Used by IPSec to create a secure tunnel by encrypting the connection between authenticated pairs
+Security Association
+--Establishment of secure connections and shared security information using certificates or cryptographic keys
+Authentication Header
+--Protocol used in IPSec that provides integrity and authentication
+ESP Encapsulating Security Payload
+--Provides integrity, confidentiality, and authenticity of packets by encapsulating and encrypting them
+Transport Mode
+--IPSec mode that encrypts only the payload and is only used for transmission on a private network
+Tunnel Mode
+--IPSec mode that encrypts the header and payload and is used over public networks

@@ -11,3 +11,18 @@ OCSP
 --Online Certificate Status Protocol
 CSR
 --Certificate Signing Request
+S/MIME
+--Secure/Multipurpose Internet Mail Extensions
+SSL
+--Secure Socket Layer
+TLS
+--Transport Layer Security
+SSH
+--Secure Shell
+PPTP
+--Point to Point Tunneling Protocol
+L2TP
+--Layer 2 Tunneling Protocol
+ESP
+--Encapsulating Security Payload
+

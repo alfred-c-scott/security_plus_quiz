@@ -41,4 +41,41 @@ MTBF
 --Mean Time Between Failure
 MTTR
 --Mean Time To Recovery
-
+PII
+--Personally Identifiable Information
+PHI
+--Protected Health Information
+HIPAA
+--Affects healthcare providers, facilities, insurance companies, and medical data clearing houses
+FISMA
+--Federal Information Security Management Act of 2002
+HAVA
+--Help America Vote Act of 2002
+CIA
+--Confidentiality Integrity Availability
+GDPR
+--General Data Protection Regulation
+AUP
+--Acceptable Use Policy
+NDA
+--Non-Disclosure Agreement
+MOU
+--memorandum of Understandin
+SLA
+--Service-Level Agreement
+ISA
+--Interconnection Security Agreement
+BPA
+--Business Partnership Agreement
+COBIT
+--Control Objectives and Related Technology
+ITIL
+--Information Technology Infrastructure Library
+CIS
+--Center for Internet Security
+RMF
+--Risk Management Framework
+SOC
+--System and Organization Control
+PCI DSS
+--Payment card Industry Data Security Standard

@@ -1,0 +1,62 @@
+Policies
+--Defines the role of security in an organization and establishes the desired end state of the security program and are intentionally broad
+Organizational Policies
+--Provide general direction adn goals, a framework to meet the business goals, and define the roles, responsibilities, and terms
+System-Specific Policies
+--Address the security needs of a specific technology, application, network, or computer system
+Issue-Specific Policies
+--Built to address a specific security issue, such as email privacy, employee termination procedures, or other specific issues
+Standards
+--Used to implement a policy in an organization
+Baseline
+--Created as reference points which are documented for use as a method of comparison during an analysis conducted in the future
+Guidelines
+--Flexible in nature and are used to recommend actions
+Procedures
+--Detailed step-by-step instructions that are created to ensure personnel can perform a given action
+Data Ownership
+--Identifies the person responsible for the confidentiality, integrity, availability, and privacy of information assets
+PII (Personally Identifiable Information)
+--A piece of data that can be used either by itself or in combination with some other pieces of data to identify a single person
+Privacy Act of 1974
+--Affects US government computer systems that collects, stores, uses, or disseminates personally identifiable information
+Health Insurance Portability and Accountability Act
+--Affects healthcare providers, facilities, insurance companies, and medical data clearing houses
+Sarbanes-Oxley (SOX)
+--Affects publicly=traded US corporations and requires certain accounting methods and financial reporting requirements
+Gramm-Leach-Bliley Act (GLBA)
+--Affects banks, mortgage companies, loan offices, insurance companies, investment companies, and credit card providers
+FISMA of 2002 (Federal Information Security Management Act)
+--Requires each agency to develop, document, and implement an agency-wide information systems security program to protect their data
+HAVA - Help America Vote Act of 2002
+--Provides regulations that govern the security, confidentiality, and integrity of the personal information collected, stored, or precessed during the election and voting process
+Privacy
+--A data governance requirement that arises when collecting and processing personal data to ensure the rights of the subject's data
+GDPR
+--EU regulation requiring that personnel data cannot be collected, processed, or retained without the individual's informed consent
+Deidentification
+--Methods and technologies that remove identifying information from data before it is distributed
+Data Masking
+--A deidentification method where generic or placeholder labels are substituted for real data while preserving the structure or format of the original data
+Tokenization
+--A deidentification method that substitutes a token for real data
+Aggregation/Banding
+--A deidentification technique where data is generalized to protect the individuals involved
+Reidentification
+--An attack that combines a deidentified dataset with other data sources to discover how secure the deidentification method used is
+AUP (Acceptable Use Policy)
+--Defines the rules that restrict how a computer, network, or other systems may be used
+Change management Policy
+--Defines the structured way of changing the state of a computer system, network, or IT procedure
+Separation of Duties
+--A preventative type of administrative control
+Job Rotation
+--Different users are trained to perform the tasks of the same position to help prevent and identify fraud that could occur if only one employee had the job
+Purging
+--Act of removing data in such a way that it cannot be reconstructed using any known forensic techniques
+Clearing
+--Removal of data with a certain amount of assurance that it cannot be reconstructed
+COBIT
+--A security framwork that divides IT into four domains: Plan and Organize, Acquire and Implement, Deliver and Support, and Monitor and Evaluate
+NIST SP 800-53
+--A security control framework developed by the Dept of Commerce
